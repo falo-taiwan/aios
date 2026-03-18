@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- 基本 SEO -->
+    <title>FALO Portable AI System | Force Cheng</title>
+    <meta name="description" content="FALO Portable AI System 是一套本地優先、可攜式、Agent-driven 的 AI 系統敘事原型頁，聚焦 Portable AI、Knowledge Management、Workflow 與可部署能力單位。">
+    <meta name="keywords" content="FALO, Portable AI System, Agent, Local-first, Knowledge Management, Workflow System, AI System, AI Agent, Portable AI, Force Cheng, FALO Web">
+    <meta name="author" content="Force Cheng × FALO">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://falo.web.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://falo.web.app/">
+    <meta property="og:title" content="FALO Portable AI System | 本地優先 × 可攜式 AI 系統">
+    <meta property="og:description" content="AI 正在從服務進化為系統。FALO 讓 AI 成為可攜帶、可部署、可操作的能力單位。">
+    <meta property="og:site_name" content="FALO">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FALO Portable AI System">
+    <meta name="twitter:description" content="不只是 Chat，而是為 Agent × Workflow × Knowledge System 設計的可持續運作系統。">
+    <meta name="twitter:site" content="@falo_tw">
+    <meta name="twitter:creator" content="@falo_tw">
+
+    <!-- 結構化資料 JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "FALO Portable AI System",
+          "applicationCategory": "AI Knowledge System",
+          "operatingSystem": "Local-first / Portable",
+          "author": {
+            "@type": "Person",
+            "name": "Force Cheng"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "FALO"
+          },
+          "url": "https://falo.web.app/"
+        },
+        {
+          "@type": "Article",
+          "headline": "FALO Portable AI System",
+          "description": "Portable AI、Agent Workflow 與本地優先系統敘事的第一版公開頁。",
+          "datePublished": "2026-03-18",
+          "dateModified": "2026-03-18",
+          "author": {
+            "@type": "Person",
+            "name": "Force Cheng"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "FALO"
+          },
+          "mainEntityOfPage": "https://falo.web.app/"
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-soft: #f8fafc;
+            --ink: #111827;
+            --muted: #6b7280;
+            --line: #e5e7eb;
+            --primary: #2563eb;
+            --primary-deep: #1d4ed8;
+            --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
+            --shadow-strong: 0 24px 60px rgba(37, 99, 235, 0.16);
+            --radius-card: 1.5rem;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #f9fafb 100%);
+            color: var(--ink);
+        }
+        .page-shell { max-width: 72rem; }
+        .block-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-card);
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-soft);
+            page-break-inside: avoid;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight-block {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 2.25rem 1.75rem;
+            border-radius: 1.75rem;
+            box-shadow: var(--shadow-strong);
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .flow-arrow {
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+            color: #9ca3af;
+            font-size: 1.5rem;
+        }
+        .max-content { max-width: 46rem; margin: 0 auto; }
+        .section-nav {
+            position: sticky;
+            top: 4.5rem;
+            z-index: 40;
+            margin: 0 auto 2rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .section-nav::-webkit-scrollbar { display: none; }
+        .section-nav-inner {
+            display: inline-flex;
+            gap: 0.75rem;
+            min-width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(14px);
+        }
+        .section-link {
+            white-space: nowrap;
+            border-radius: 999px;
+            padding: 0.65rem 0.95rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #4b5563;
+            transition: all 180ms ease;
+        }
+        .section-link:hover {
+            background: #eff6ff;
+            color: var(--primary);
+        }
+        .back-to-top {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 999px;
+            background: rgba(37, 99, 235, 0.95);
+            color: white;
+            box-shadow: var(--shadow-soft);
+        }
+        .back-to-top:hover { background: var(--primary-deep); }
+        h1, h2, h3, h4 { color: #111827; }
+        p { line-height: 1.75; }
+        @media (max-width: 640px) {
+            .block-card { padding: 1.25rem; margin-bottom: 1.5rem; }
+            .highlight-block { padding: 1.75rem 1.25rem; margin: 2rem 0; }
+            .section-nav { top: 4.1rem; margin-bottom: 1.5rem; }
+            .section-nav-inner { padding: 0.75rem 0.85rem; gap: 0.5rem; }
+            .section-link { padding: 0.55rem 0.85rem; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body id="top" class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100" data-block="header">
+        <nav class="page-shell mx-auto px-6 py-4 flex justify-between items-center" aria-label="Global navigation">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-xl tracking-tight">Force × FALO</span>
+                <span class="px-2 py-0.5 bg-gray-100 text-[10px] font-bold text-gray-500 rounded uppercase">v1.0 System</span>
+            </div>
+            <div class="hidden sm:block text-[10px] font-semibold text-gray-400 uppercase tracking-widest text-right">
+                Portable AI System<br>
+                <span class="text-blue-500">Released 2026.03.18</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell mx-auto px-6 py-10 md:py-16">
+        <nav class="section-nav" aria-label="Page sections" data-block="anchor_navigation">
+            <div class="section-nav-inner">
+                <a class="section-link" href="#hero">Overview</a>
+                <a class="section-link" href="#agent-inspiration">Agent</a>
+                <a class="section-link" href="#evolution">Evolution</a>
+                <a class="section-link" href="#components">Components</a>
+                <a class="section-link" href="#layers">Layers</a>
+                <a class="section-link" href="#flow">Flow</a>
+                <a class="section-link" href="#business">Delivery</a>
+                <a class="section-link" href="#cta">CTA</a>
+            </div>
+        </nav>
+
+        <!-- Hero Block -->
+        <section id="hero" class="mb-20 text-center" data-block="hero">
+            <div class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full mb-4">
+                AGENT-DRIVEN × PORTABLE SYSTEM
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                FALO 可攜式 <br><span class="gradient-text text-5xl md:text-6xl">AI System</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-6 max-content">
+                本地優先 (Local-first) × 可攜式 (Portable) 概念的集大成。這不只是一份架構文件，而是一套可運作、可部署的系統單位。
+            </p>
+            
+            <!-- System Definition Supplement -->
+            <div class="max-w-lg mx-auto bg-gray-100/50 p-4 rounded-xl mb-8 text-sm text-gray-500 flex flex-wrap justify-center gap-x-6 gap-y-2" data-block="system_definition">
+                <span class="flex items-center gap-1">● 可攜式 (Portable)</span>
+                <span class="flex items-center gap-1">● 可部署 (Deployable)</span>
+                <span class="flex items-center gap-1">● 可操作 (Agent-driven)</span>
+                <span class="flex items-center gap-1">● 可複製 (Reusable)</span>
+            </div>
+
+            <div class="text-xs font-medium text-gray-400 mb-8">
+                Defined by: <span class="text-gray-900">Force Cheng</span> &nbsp;|&nbsp; Version: <span class="text-gray-900">v1.0 (2026/03/18)</span>
+            </div>
+        </section>
+
+        <!-- Highlight Quote -->
+        <section class="highlight-block" data-block="highlight_quote" aria-labelledby="highlight-quote-title">
+            <p class="text-blue-100 text-xs uppercase tracking-widest mb-4">Core Insight</p>
+            <h2 id="highlight-quote-title" class="text-xl md:text-2xl font-bold leading-relaxed">
+                AI 正在從「服務 (Service)」進化為「系統 (System)」<br>
+                FALO 的目標，是讓 AI 成為可攜帶、可部署的能力單位。
+            </h2>
+        </section>
+
+        <!-- Agent Inspiration Block (NEW) -->
+        <section id="agent-inspiration" class="block-card border-l-4 border-l-blue-600" data-block="agent_inspiration">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="text-3xl">🦞</span>
+                <div>
+                    <h2 class="text-xl font-bold">Agent 時代的啟發</h2>
+                    <p class="text-xs text-gray-400 uppercase">Agent-driven Inspiration</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-2">從工具轉向 Agent</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        AI 不再只是對話框裡的回應，而是具備操作檔案、流程自動化、多系統協作能力的執行單體。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-2">系統單位的進化</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        受「龍蝦 (Lobster)」等系統啟發：本機運行、可持續工作流、不依賴單次 Prompt，具備對系統底層的操作力。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
+                <h4 class="text-blue-700 font-bold text-sm mb-2">關鍵洞察：</h4>
+                <p class="text-sm text-blue-900 font-medium leading-relaxed">
+                    AI 不再只是「問答工具」，而是「可持續運作的系統單位」。FALO 的設計不只是為了 Chat，而是為了 <span class="underline decoration-blue-300">Agent × Workflow × Knowledge System</span>。
+                </p>
+            </div>
+        </section>
+
+        <!-- Evolution Path -->
+        <section id="evolution" class="mb-14" data-block="evolution">
+            <h2 class="text-2xl font-bold mb-8 text-center">進化路徑：從服務到系統</h2>
+            <div class="space-y-4">
+                <div class="p-5 bg-white border border-gray-100 rounded-xl">
+                    <h3 class="font-bold text-gray-400 mb-1 italic text-sm">01. Service (Cloud-First)</h3>
+                    <p class="text-sm text-gray-600">依賴外部雲端平台，受限於隱私與連線。使用者去連結服務。</p>
+                </div>
+                <div class="flow-arrow">↓</div>
+                <div class="p-5 bg-white border border-blue-100 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-blue-600 mb-1 text-sm uppercase">02. Control (Local-First)</h3>
+                    <p class="text-gray-700 font-medium">系統回到本地端，資料與流程完全可控。低依賴性。</p>
+                </div>
+                <div class="flow-arrow text-blue-600">↓</div>
+                <div class="p-6 bg-blue-600 text-white rounded-xl shadow-lg ring-4 ring-blue-100">
+                    <h3 class="font-bold mb-1 tracking-wider text-blue-200 uppercase text-[10px] underline">Final Form</h3>
+                    <h3 class="font-bold text-xl mb-2">03. System (Portable-First)</h3>
+                    <p class="text-blue-50 opacity-90 text-sm md:text-base leading-relaxed">整套 AI 系統可複製、可交付。它是具備物理移動性與離線生存力的執行單體。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components -->
+        <section id="components" class="block-card" data-block="components">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <span class="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center mr-3 text-sm">7</span>
+                Portable System 核心組成
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">1. CM (Content Matrix)</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">知識核心：Records, Metadata, Publish Trace</p>
+                </article>
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">2. Knowledge Blocks</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">AI 工作的基底：Source, Notes, Article Snapshots</p>
+                </article>
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">3. Agent Workflow</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">工作方法：Prompts, Task Flow, Generation Path</p>
+                </article>
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">4. Local LLM (Optional)</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">離線推論：本地模型服務，斷網仍可維持生成力</p>
+                </article>
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">5. FW Build 工具</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">轉換引擎：Template, Config, Build Scripts</p>
+                </article>
+                <article class="p-4 bg-gray-50 rounded-lg">
+                    <h4 class="font-bold text-sm text-blue-600 mb-1">6. Static Site 輸出</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">展示層：Deploy-ready HTML, taxonomy pages</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Three Layer Architecture -->
+        <section id="layers" class="mb-14" data-block="layers">
+            <h2 class="text-2xl font-bold mb-8 text-center">System 三層架構</h2>
+            <div class="flex flex-col gap-2">
+                <div class="bg-gray-800 text-white p-6 rounded-t-2xl border-b border-gray-700">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[10px] font-bold text-gray-400 tracking-tighter uppercase">Layer 01 / Control Layer</span>
+                        <span class="px-2 py-0.5 bg-blue-500 text-[10px] rounded text-white font-bold">Truth</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Knowledge Core (CM)</h3>
+                    <p class="text-sm text-gray-400 italic">負責：真相秩序、Version 管理、Publish Trace</p>
+                </div>
+                <div class="bg-gray-100 p-6 border-b border-gray-200">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[10px] font-bold text-gray-400 tracking-tighter uppercase">Layer 02 / Build Layer</span>
+                        <span class="px-2 py-0.5 bg-gray-300 text-[10px] text-gray-700 rounded font-bold">Agent</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800 font-mono">Build Engine</h3>
+                    <p class="text-sm text-gray-600 italic">負責：Agent Execution, LLM Inference, Build Pipeline</p>
+                </div>
+                <div class="bg-white p-6 rounded-b-2xl shadow-md border border-gray-100">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-[10px] font-bold text-gray-400 tracking-tighter uppercase">Layer 03 / Static Layer</span>
+                        <span class="px-2 py-0.5 bg-green-100 text-[10px] text-green-700 rounded font-bold">Surface</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Delivery Surface</h3>
+                    <p class="text-sm text-gray-600 italic">負責：Static Site, CDN 分享, 被閱讀與感知</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portable Flow -->
+        <section id="flow" class="block-card bg-blue-50 border-blue-100" data-block="flow">
+            <h2 class="text-sm font-bold mb-8 text-center text-blue-900 uppercase tracking-widest">System Pipeline</h2>
+            <div class="flex flex-col items-center gap-4 py-4">
+                <div class="w-full max-w-sm p-4 bg-white rounded-lg shadow-sm border border-blue-200 text-center">
+                    <div class="text-[9px] font-bold text-blue-400 mb-1 uppercase">Knowledge Truth</div>
+                    <div class="font-bold text-sm">Portable CM (USB / 本機)</div>
+                </div>
+                <div class="h-6 border-l-2 border-dashed border-blue-300"></div>
+                <div class="w-full max-w-sm p-4 bg-white rounded-lg shadow-sm border border-blue-200 text-center">
+                    <div class="text-[9px] font-bold text-blue-400 mb-1 uppercase">Reasoning Engine</div>
+                    <div class="font-bold text-sm">Agent / Local LLM</div>
+                </div>
+                <div class="h-6 border-l-2 border-dashed border-blue-300"></div>
+                <div class="w-full max-w-sm p-5 bg-blue-600 text-white rounded-xl shadow-lg text-center">
+                    <div class="text-[10px] font-bold text-blue-200 mb-1 uppercase tracking-widest">System Delivery</div>
+                    <div class="font-bold">Static Site Artifacts</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Scenarios -->
+        <section id="business" class="block-card bg-gray-50" data-block="business">
+            <h2 class="text-lg font-bold mb-6 underline decoration-blue-500 underline-offset-8">商業應用與系統交付 / Delivery Scenarios</h2>
+            <div class="space-y-4">
+                <div class="p-4 bg-white rounded-lg border border-gray-200">
+                    <span class="text-blue-600 font-bold mr-2 text-sm">A</span> <strong class="text-sm">顧問交付：</strong> 交付一套可直接運行的系統包，而不僅是報告。
+                </div>
+                <div class="p-4 bg-white rounded-lg border border-gray-200">
+                    <span class="text-blue-600 font-bold mr-2 text-sm">B</span> <strong class="text-sm">物理斷網部署：</strong> 在完全隔離的物理環境中運行的知識單元。
+                </div>
+                <div class="p-4 bg-white rounded-lg border border-gray-200">
+                    <span class="text-blue-600 font-bold mr-2 text-sm">C</span> <strong class="text-sm">系統複製品：</strong> 同步多個站點的 Agent 與 KM 結構，實現物理級別的同步。
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="cta" class="text-center py-12 bg-white rounded-3xl border-2 border-blue-600 shadow-xl relative overflow-hidden" data-block="cta">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-50 rounded-full"></div>
+            
+            <div class="relative z-10 px-6">
+                <h2 class="text-xl md:text-2xl font-extrabold mb-4 italic leading-relaxed">
+                    「雲端讓 AI 能用，本地讓 AI 可控，<br class="block md:hidden">Portable 讓 AI 可帶走。」
+                </h2>
+                <p class="text-sm text-gray-500 mb-8 max-w-md mx-auto">
+                    FALO Portable AI System：將 AI 轉化為可攜帶、可部署的能力單位。
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#components" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition text-sm">Explore System</a>
+                    <a href="#footer" class="bg-gray-100 text-gray-900 px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition text-sm">Contact Architect</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer" class="py-12 border-t border-gray-100 text-center" data-block="footer">
+        <div class="mb-4 flex justify-center gap-4 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+            <span>Local-First</span>
+            <span>•</span>
+            <span>Portable-First</span>
+            <span>•</span>
+            <span>Agent-Driven AI System</span>
+        </div>
+        <p class="text-xs text-gray-400">© 2026 <span class="text-gray-900 font-semibold">Force Cheng × FALO</span>. All rights reserved.</p>
+    </footer>
+
+    <a href="#top" class="back-to-top" aria-label="Back to top" data-block="back_to_top">↑</a>
+
+    <script>
+        console.log("FALO Portable AI System v1.0 | Developed by Force Cheng");
+    </script>
+</body>
+</html>
